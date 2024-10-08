@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class fly : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    public SpriteRenderer plane;
+
     public float jumpforce = 100;
+
+    private int score = 0;
+
+    public TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        plane = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -37,6 +47,20 @@ public class fly : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, -30);
 
         }
+
+
+        
+
+
+
+
     }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        scoreText.text =  (++score).ToString("0000");
+    }
+
+
 }
 
