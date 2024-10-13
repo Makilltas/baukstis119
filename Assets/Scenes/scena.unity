@@ -425,6 +425,8 @@ MonoBehaviour:
   jumpforce: 8
   successSound: {fileID: 8300000, guid: 337bade8fbdb061448073dc488fde414, type: 3}
   JumpSound: {fileID: 8300000, guid: be7cb3010f8680b4b8e84b8cf7b15fd8, type: 3}
+  FallSound: {fileID: 8300000, guid: 7fe4c64bf7469df42ba6cb4e78544878, type: 3}
+  HitSound: {fileID: 8300000, guid: 44269aeb445cb8a42af452ec4e29a5a5, type: 3}
 --- !u!95 &172546999
 Animator:
   serializedVersion: 5
@@ -433,7 +435,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172546993}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 23c4f255a4dd88a468266d116dabb520, type: 2}
   m_CullingMode: 0
@@ -709,7 +711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 249}
+  m_AnchoredPosition: {x: -196, y: 249}
   m_SizeDelta: {x: 180, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &506979928
