@@ -20,7 +20,6 @@ public class fly : MonoBehaviour
     private int score = 0;
 
     public AudioClip successSound;
-    public AudioClip JumpSound;
 
     private AudioSource audioSource;
 
@@ -41,12 +40,7 @@ public class fly : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-<<<<<<< Updated upstream:Assets/script/fly.cs
             if (rb.velocity.y < 0)
-=======
-            audioSource.PlayOneShot(JumpSound);
-            if(rb.velocity.y < 0)
->>>>>>> Stashed changes:Assets/Scripts/Fly.cs
             {
                 rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
             }
