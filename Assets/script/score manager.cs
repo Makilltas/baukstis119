@@ -14,22 +14,25 @@ public class scoremanager : MonoBehaviour
 
     public Sprite[] medals;
 
+    
+
     public void ShowScoreBoard(int score)
     {
         scoreBoard.SetActive(true);
-        scoreText.text = score.ToString("D4");
+        scoreText.text = score.ToString("0000");
+
 
         var hightScore = PlayerPrefs.GetInt("HighScore", 0);
         if (score > hightScore)
         {
             PlayerPrefs.SetInt("HighScore", score);
             PlayerPrefs.Save();
-            highScoreText.text = score.ToString("D4");
+            highScoreText.text = score.ToString("0000");
             medal.sprite = medals[0];
         }
         else
         {
-            highScoreText.text = hightScore.ToString("D4");
+            highScoreText.text = hightScore.ToString("0000");
             medal.sprite = medals[1];
         }
     }
