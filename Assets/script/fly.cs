@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class fly : MonoBehaviour
 {
     private Rigidbody2D rb;
+
+    public scoremanager scoremanager;
+
+    public TextMeshProUGUI scoreText;
 
     public SpriteRenderer plane;
 
@@ -14,7 +19,11 @@ public class fly : MonoBehaviour
 
     private int score = 0;
 
-    public TextMeshProUGUI scoreText;
+    public AudioClip successSound;
+
+    private AudioSource audioSource;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +31,8 @@ public class fly : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         plane = GetComponent<SpriteRenderer>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,6 +70,13 @@ public class fly : MonoBehaviour
     void OnTriggerExit2D(Collider2D col)
     {
         scoreText.text =  (++score).ToString("0000");
+        audioSource.PlayOneShot(successSound);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        scoremanager.ShowScoreBoard(score);
+        gameObject.SetActive(false);
     }
 
 
