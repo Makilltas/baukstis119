@@ -3,7 +3,14 @@ guid: b60d54faddc3ef04691ec6787764c7dd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - scoremanager: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - plane: {instanceID: 0}
+  - successSound: {instanceID: 0}
+  - JumpSound: {instanceID: 0}
+  - FallSound: {fileID: 8300000, guid: 7fe4c64bf7469df42ba6cb4e78544878, type: 3}
+  - HitSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

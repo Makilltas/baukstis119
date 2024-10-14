@@ -13,6 +13,8 @@ public class fly : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
+    private float previousVelocityY;  
+
     public SpriteRenderer plane;
 
     public float jumpforce = 100;
@@ -27,8 +29,6 @@ public class fly : MonoBehaviour
     private AudioSource audioSource;
 
     
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,60 +36,85 @@ public class fly : MonoBehaviour
         plane = GetComponent<SpriteRenderer>();
 
         audioSource = GetComponent<AudioSource>();
+
+        previousVelocityY = rb.velocity.y; 
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-
             if (rb.velocity.y < 0)
+                audioSource.PlayOneShot(JumpSound); 
 
-            audioSource.PlayOneShot(JumpSound);
-            if(rb.velocity.y < 0)
-
+            
+            if (rb.velocity.y < 0)
             {
                 rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
-                
             }
-
-
         }
 
+        
+        DetectFalling();
+
+        
         if (rb.velocity.y > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 30);
-            
+            transform.rotation = Quaternion.Euler(0, 0, 30); 
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, 0, -30);
+            transform.rotation = Quaternion.Euler(0, 0, -30); 
+        }
+    }
+
+    
+    void DetectFalling()
+    {
+        float currentVelocityY = rb.velocity.y;
+
+        
+        if (previousVelocityY > 0 && currentVelocityY < 0)
+        {
             
+            if (FallSound != null && !audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(FallSound);
+            }
         }
 
         
-        
-
-
-
-
+        previousVelocityY = currentVelocityY;
     }
 
+   
     void OnTriggerExit2D(Collider2D col)
     {
-        scoreText.text =  (++score).ToString("0000");
-        audioSource.PlayOneShot(successSound);
+        scoreText.text = (++score).ToString("0000");
+        audioSource.PlayOneShot(successSound); 
     }
 
+    
     void OnCollisionEnter2D(Collision2D col)
     {
-        audioSource.PlayOneShot(HitSound);
+       
+        
+
+        
         scoremanager.ShowScoreBoard(score);
         gameObject.SetActive(false);
-        
+
+        Ggsound();
     }
+
+    void Ggsound()
+    {
+        Debug.Log($"My audioSource is enabled: {audioSource.isActiveAndEnabled}");
+        audioSource.PlayOneShot(HitSound);
+    }
+
 
 
 }
-
