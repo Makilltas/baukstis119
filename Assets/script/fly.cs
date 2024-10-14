@@ -104,9 +104,10 @@ public class fly : MonoBehaviour
 
         
         scoremanager.ShowScoreBoard(score);
+        Ggsound();
         gameObject.SetActive(false);
 
-        Ggsound();
+        
     }
 
     void Ggsound()
