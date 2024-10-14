@@ -111,7 +111,7 @@ public class fly : MonoBehaviour
 
     void Ggsound()
     {
-        Debug.Log($"My audioSource is enabled: {audioSource.isActiveAndEnabled}");
+        
         audioSource.PlayOneShot(HitSound);
     }
 
