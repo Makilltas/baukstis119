@@ -9,7 +9,9 @@ public class fly : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    public scoremanager scoremanager;
+    public Sprite explosion;
+
+    public ScoreManager scoremanager;
 
     public TextMeshProUGUI scoreText;
 
@@ -107,22 +109,13 @@ public class fly : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D col)
     {
-       
-        
-
-        
-        scoremanager.ShowScoreBoard(score);
-        Ggsound();
-        gameObject.SetActive(false);
-
-        
-    }
-
-    void Ggsound()
-    {
-        
+        plane.sprite = explosion;
         audioSource.PlayOneShot(HitSound);
+        scoremanager.ShowScoreBoard(score);
+        enabled = false;
     }
+
+    
 
 
 
