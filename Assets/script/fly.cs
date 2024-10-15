@@ -68,6 +68,14 @@ public class fly : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, -30); 
         }
+
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            audioSource.PlayOneShot(HitSound);
+        }
+
+
     }
 
     
