@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60d54faddc3ef04691ec6787764c7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 21300000, guid: 1f2352da18ed15449b0b874a04ede678, type: 3}
   scoremanager: {fileID: 1296661994}
   scoreText: {fileID: 506979928}
   plane: {fileID: 0}
@@ -1960,7 +1961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreBoard: {fileID: 1005965645}
   scoreText: {fileID: 834900888}
-  highScoreText: {fileID: 735955437}
+  highScoreText: {fileID: 0}
   medal: {fileID: 1976155220}
   medals:
   - {fileID: 21300000, guid: f918053aa17d7483898b19b0a57276ec, type: 3}
